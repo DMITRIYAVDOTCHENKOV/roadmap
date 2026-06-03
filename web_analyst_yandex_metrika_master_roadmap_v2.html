@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Analyst Master: Яндекс Метрика — Roadmap RU</title>
+  <style>
+    :root{
+      --bg:#fbf4ea; --bg2:#fffaf3; --card:#ffffff; --ink:#241812; --muted:#7a665a;
+      --line:#ead9ca; --peach:#f3b98f; --peach2:#ffe1c9; --orange:#f08a4b;
+      --lav:#ded9ff; --violet:#7664e8; --mint:#dff7e9; --green:#2d9b65;
+      --sky:#dcf2ff; --blue:#277bbd; --pink:#ffe0ef; --rose:#d95a86;
+      --amber:#fff0bf; --brown:#8b5e34; --shadow:0 22px 70px rgba(126,82,46,.13);
+      --radius:28px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+    body{font-family:Inter, "Segoe UI", system-ui, -apple-system, Arial, sans-serif;background:
+      radial-gradient(circle at 5% 0%,#fff 0 14%,transparent 30%),
+      radial-gradient(circle at 98% 4%,#ffe1c9 0 12%,transparent 30%),
+      linear-gradient(180deg,var(--bg2),var(--bg));color:var(--ink);line-height:1.65}
+    a{color:inherit} .shell{max-width:1440px;margin:auto;padding:22px}
+    .layout{display:grid;grid-template-columns:270px 1fr;gap:22px;align-items:start}
+    .sidebar{position:sticky;top:18px;height:calc(100vh - 36px);background:rgba(255,255,255,.74);backdrop-filter:blur(18px);border:1px solid var(--line);border-radius:32px;padding:20px;box-shadow:var(--shadow);overflow:auto}
+    .brand{display:flex;gap:12px;align-items:center;margin-bottom:18px}.logo{width:48px;height:48px;border-radius:18px;background:linear-gradient(135deg,var(--peach),var(--lav));display:grid;place-items:center;font-size:24px;box-shadow:0 12px 28px rgba(240,138,75,.22)}
+    .brand h1{font-size:18px;line-height:1.12}.brand p{font-size:12px;color:var(--muted)}
+    .nav{display:flex;flex-direction:column;gap:8px}.nav a{padding:12px 14px;border-radius:16px;text-decoration:none;color:#5d4638;font-weight:800;font-size:14px;border:1px solid transparent;transition:.2s}.nav a:hover{background:#fff5ed;border-color:var(--line);transform:translateX(3px)}
+    .tiny{font-size:12px;color:var(--muted);margin-top:18px;padding:12px;background:#fff7ef;border-radius:18px;border:1px dashed #edcbb4}
+    .main{min-width:0}.hero{background:linear-gradient(135deg,#fff 0%,#fff7ee 48%,#f7e6ff 100%);border:1px solid var(--line);border-radius:42px;padding:46px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+    .hero:before{content:"";position:absolute;right:-120px;top:-120px;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,#ffcfae,transparent 65%);opacity:.75}.hero:after{content:"";position:absolute;left:45%;bottom:-160px;width:360px;height:360px;border-radius:50%;background:radial-gradient(circle,#ded9ff,transparent 68%);opacity:.65}
+    .hero>*{position:relative;z-index:1}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);padding:9px 13px;border-radius:999px;color:#7a4b2c;font-weight:900;font-size:13px;box-shadow:0 10px 26px rgba(126,82,46,.08)}
+    h2.title{font-size:clamp(34px,5vw,66px);line-height:.96;letter-spacing:-.045em;margin:18px 0 16px}.grad{background:linear-gradient(90deg,#6d45c7,#e6733c,#db5792);-webkit-background-clip:text;color:transparent}
+    .lead{max-width:850px;color:#695346;font-size:18px}.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 18px;border-radius:17px;border:1px solid var(--line);text-decoration:none;font-weight:900;background:#fff;box-shadow:0 12px 30px rgba(126,82,46,.08);transition:.2s;cursor:pointer}.btn:hover{transform:translateY(-3px);box-shadow:0 18px 36px rgba(126,82,46,.14)}.btn.primary{background:#21140e;color:#fff;border-color:#21140e}.btn.peach{background:#fff1e7;color:#8c4d24}.btn.lav{background:#f1efff;color:#4e3ec2}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:28px}.stat{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:22px;padding:18px}.stat b{display:block;font-size:26px}.stat span{font-size:13px;color:var(--muted);font-weight:700}
+    section{margin-top:28px}.section-card{background:rgba(255,255,255,.78);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:22px}.sec-title{font-size:32px;letter-spacing:-.025em;line-height:1.05}.sec-desc{color:var(--muted);max-width:760px;margin-top:8px}.chiprow{display:flex;flex-wrap:wrap;gap:8px}.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:7px 10px;font-size:12px;font-weight:900;background:#fff;border:1px solid var(--line);color:#684c3e}.chip.free{background:var(--mint);color:var(--green)}.chip.paid{background:var(--amber);color:#8a5a10}.chip.official{background:var(--sky);color:var(--blue)}
+    .grade-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.grade-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:22px;box-shadow:0 14px 38px rgba(126,82,46,.09);cursor:pointer;transition:.2s}.grade-card:hover,.grade-card.active{transform:translateY(-5px);border-color:#f2ad7a;background:linear-gradient(180deg,#fff,#fff5ed)}.grade-card .icon{font-size:32px}.grade-card h3{font-size:22px;margin:10px 0 6px}.grade-card p{color:var(--muted);font-size:14px}.grade-card.active{outline:3px solid #ffe0c8}
+    .path{display:none;margin-top:18px}.path.active{display:block}.path-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}.timeline{position:relative;display:flex;flex-direction:column;gap:14px}.step{display:grid;grid-template-columns:44px 1fr;gap:13px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:16px}.num{width:44px;height:44px;border-radius:15px;background:linear-gradient(135deg,var(--peach2),var(--lav));display:grid;place-items:center;font-weight:1000}.step h4{font-size:18px}.step p{color:var(--muted);font-size:14px}.sidebox{background:#fff7ef;border:1px solid #edd2bf;border-radius:22px;padding:20px}.sidebox h4{font-size:20px;margin-bottom:10px}.sidebox ul{padding-left:18px;color:#5c4639}.sidebox li{margin:8px 0}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}.card{background:#fff;border:1px solid var(--line);border-radius:24px;padding:22px;box-shadow:0 14px 38px rgba(126,82,46,.08)}.card h3{font-size:20px;margin-bottom:8px}.card p{color:var(--muted);font-size:14.5px}.card ul{padding-left:18px;color:#5c4639}.card li{margin:7px 0}.pill{display:inline-flex;font-size:12px;font-weight:900;padding:6px 10px;border-radius:999px;margin:0 6px 8px 0;background:#fff1e7;color:#8b4d25;border:1px solid #f0d2bd}
+    .skill{display:flex;flex-direction:column;gap:10px}.skill-top{display:flex;justify-content:space-between;gap:8px}.level-badge{white-space:nowrap;font-size:12px;border-radius:999px;padding:5px 8px;background:#f1efff;color:#5041bc;font-weight:900}.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}.link{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:13px;font-weight:900;padding:8px 10px;border-radius:12px;border:1px solid var(--line);background:#fff7ef;color:#6d4937}.link:hover{background:#fff0e3}.link.official{background:#eef8ff;color:#246b9e}.link.free{background:#edfff4;color:#237c52}.link.paid{background:#fff4cf;color:#80550e}
+
+    .step-res{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}.step-res a{display:inline-flex;align-items:center;gap:6px;text-decoration:none;font-size:12px;font-weight:900;padding:7px 9px;border-radius:12px;border:1px solid var(--line);background:#fff7ef;color:#6d4937}.step-res a:hover{background:#fff0e3;transform:translateY(-1px)}.step-res a.free{background:#edfff4;color:#237c52}.step-res a.paid{background:#fff4cf;color:#80550e}.step-res a.official{background:#eef8ff;color:#246b9e}.step-res a.habr{background:#f4f7ff;color:#374c97}.step-res a.practice{background:#fff1e7;color:#8b4d25}
+    .path-pack{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:14px}.mini-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:14px}.mini-card b{display:block;margin-bottom:6px}.mini-card p{font-size:13px;color:var(--muted)}
+    .course-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}.course-tab{border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 12px;font-weight:900;cursor:pointer;color:#65493b}.course-tab.active{background:#21140e;color:#fff;border-color:#21140e}.course-group{display:none}.course-group.active{display:block}.course-group h3.group-title{font-size:24px;margin:18px 0 14px}.card.course-card{position:relative;overflow:hidden}.course-card:before{content:"";position:absolute;right:-35px;top:-35px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,#ffe1c9,transparent 68%);opacity:.85}.course-card>*{position:relative}.course-meta{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}.course-meta span{font-size:12px;font-weight:900;padding:5px 8px;border-radius:999px;background:#fff7ef;border:1px solid var(--line);color:#705142}.course-card .links{margin-top:14px}.source-note{font-size:13px;color:var(--muted);margin-top:12px}.learning-note{margin-top:14px;background:#fff; border:1px dashed #edcbb4;border-radius:18px;padding:14px;color:#5a4337}
+
+    .qa-toolbar{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}.search{flex:1;min-width:250px;border:1px solid var(--line);background:#fff;border-radius:18px;padding:14px 16px;font-size:15px}.select{border:1px solid var(--line);background:#fff;border-radius:18px;padding:14px 16px;font-weight:900;color:#5e4639}.faq-list{display:grid;gap:10px}.faq-item{background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden}.faq-q{padding:16px 18px;font-weight:900;cursor:pointer;display:flex;justify-content:space-between;gap:12px}.faq-a{display:none;padding:0 18px 18px;color:#5f493d}.faq-item.open .faq-a{display:block}.faq-item.open .faq-q{background:#fff7ef}
+    .table-wrap{overflow:auto;border-radius:22px;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;background:#fff}th,td{text-align:left;padding:14px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#fff7ef;color:#6c4530;font-size:13px;text-transform:uppercase;letter-spacing:.04em}td{color:#4f3c31}.code{background:#251812;color:#fff2e8;border-radius:22px;padding:20px;overflow:auto;font-family:"SFMono-Regular",Consolas,monospace;font-size:13px;line-height:1.7}.notice{background:linear-gradient(135deg,#fff7ef,#f2f0ff);border:1px solid var(--line);padding:18px;border-radius:22px;color:#5a4337}.footer{margin-top:28px;text-align:center;color:#80675a;padding:26px}
+    @media (max-width:1100px){.layout{grid-template-columns:1fr}.sidebar{position:relative;height:auto}.nav{display:grid;grid-template-columns:repeat(3,1fr)}.stats,.grade-grid{grid-template-columns:repeat(2,1fr)}.path-grid,.grid-3,.grid-2{grid-template-columns:1fr}}
+    @media (max-width:620px){.shell{padding:12px}.hero,.section-card{padding:22px;border-radius:26px}.nav{grid-template-columns:1fr}.stats,.grade-grid{grid-template-columns:1fr}.sec-head{display:block}.title{font-size:36px}.sidebar{border-radius:24px}}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="brand"><div class="logo">📈</div><div><h1>Web Analyst Master</h1><p>Яндекс Метрика • RU roadmap</p></div></div>
+        <nav class="nav">
+          <a href="#grades">Выбор грейда</a><a href="#skills">Карта навыков</a><a href="#metrika">Мастер Метрики</a><a href="#courses">Курсы и статьи РФ</a><a href="#projects">Pet-проекты</a><a href="#portfolio">Портфолио</a><a href="#interview">100 вопросов</a><a href="#templates">Шаблоны</a><a href="#career">Карьера</a>
+        </nav>
+        <div class="tiny">Светлая premium-версия без трекера прогресса. Все разделы можно вставлять в сайт как самостоятельную HTML-страницу.</div>
+      </aside>
+      <main class="main">
+        <header class="hero">
+          <span class="eyebrow">🇷🇺 Roadmap для РФ • Яндекс Метрика • Web Analytics</span>
+          <h2 class="title">Мастер веб-аналитики <span class="grad">Яндекс Метрики</span></h2>
+          <p class="lead">Полный путь от Junior до Lead: настройка счетчика, цели, UTM, ecommerce, отчеты, сегменты, сквозная аналитика, API, BI, SQL, A/B-тесты, аудит данных и портфолио для трудоустройства.</p>
+          <div class="hero-actions"><a class="btn primary" href="#grades">Выбрать уровень</a><a class="btn peach" href="#metrika">Изучать Метрику</a><a class="btn lav" href="#interview">Готовиться к собесу</a></div>
+          <div class="stats"><div class="stat"><b>4</b><span>грейда: Junior → Lead</span></div><div class="stat"><b>100</b><span>вопросов с ответами</span></div><div class="stat"><b>60+</b><span>навыков и тем</span></div><div class="stat"><b>30+</b><span>прямых материалов</span></div></div>
+        </header>
+
+
+        <section id="grades" class="section-card">
+          <div class="sec-head">
+            <div>
+              <h2 class="sec-title">Выбери свой уровень и начни изучать</h2>
+              <p class="sec-desc">Нажми на грейд — откроется отдельный learning path: порядок тем, практика, артефакты и прямые ссылки на материалы, статьи и курсы. Теперь каждый шаг можно сразу изучать.</p>
+            </div>
+            <div class="chiprow"><span class="chip">без прогресс-трекера</span><span class="chip">кликабельно</span><span class="chip">с материалами</span></div>
+          </div>
+          <div class="grade-grid">
+            <div class="grade-card active" data-grade="junior"><div class="icon">🌱</div><h3>Junior</h3><p>0–12 месяцев. База Метрики, UTM, цели, отчеты, Excel.</p></div>
+            <div class="grade-card" data-grade="middle"><div class="icon">🚀</div><h3>Middle</h3><p>1–3 года. Ecommerce, сегменты, BI, SQL, аудит данных.</p></div>
+            <div class="grade-card" data-grade="senior"><div class="icon">👑</div><h3>Senior</h3><p>3–5 лет. Сквозная аналитика, API, эксперименты, экономика.</p></div>
+            <div class="grade-card" data-grade="lead"><div class="icon">🧭</div><h3>Lead</h3><p>5+ лет. Стратегия, команда, data governance, архитектура.</p></div>
+          </div>
+
+          <div id="path-junior" class="path active"><div class="path-grid"><div class="timeline">
+            <div class="step"><div class="num">1</div><div><h4>Понять веб-аналитику</h4><p>Посетители, визиты, просмотры, конверсия, отказы, источники трафика, воронка, KPI сайта.</p><div class="step-res"><a class="free" target="_blank" href="https://netology.ru/programs/analitika-dlya-nachinayushchih-bp">Нетология: основы</a><a class="free" target="_blank" href="https://stepik.org/course/170896/promo">Stepik: базовая аналитика</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/464467/">Habr: подборка</a></div></div></div>
+            <div class="step"><div class="num">2</div><div><h4>Установить счетчик Метрики</h4><p>Создать счетчик, проверить установку, включить Вебвизор, карты, фильтрацию роботов и доступы.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/about">Справка: старт</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/code-installation">Установка кода</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/check-counter">Проверка счетчика</a></div></div></div>
+            <div class="step"><div class="num">3</div><div><h4>Настроить цели</h4><p>Посещение страниц, клики, формы, JavaScript-события, составные цели, проверка цели.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/goals">Типы целей</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/goal-js-event">JS-цели</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/check-goal">Проверка целей</a></div></div></div>
+            <div class="step"><div class="num">4</div><div><h4>Разобрать UTM и источники</h4><p>utm_source, medium, campaign, content, term; регистр, нейминг, ошибки разметки и потери источников.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/reports/tags-utm">Отчет UTM</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/source-tags">Обработка меток</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/troubleshooting/source">Проблемы источников</a></div></div></div>
+            <div class="step"><div class="num">5</div><div><h4>Сделать первый отчет</h4><p>Источники → цели → конверсии → выводы → рекомендации по сайту и рекламе.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/reports/overview">Обзор отчетов</a><a class="free" target="_blank" href="https://yandex.ru/adv/edu/online">Яндекс обучение</a><a class="paid" target="_blank" href="https://skillbox.ru/course/yandex-metrika/">Skillbox: Метрика</a></div></div></div>
+          </div><aside class="sidebox"><h4>Минимум для выхода на рынок</h4><ul><li>3 настройки целей на демо/своем сайте</li><li>UTM-таблица для 5 каналов</li><li>аудит 10 ошибок счетчика</li><li>мини-дашборд в Google Sheets / Excel</li><li>1 кейс в портфолио: «увеличение конверсии формы»</li></ul><div class="learning-note"><b>Что учить платно:</b> Skillbox/Специалист/Нетология — когда нужна структура, куратор и практика. <br><b>Что учить бесплатно:</b> справка Метрики, Stepik, Habr, Яндекс обучение.</div></aside></div></div>
+
+          <div id="path-middle" class="path"><div class="path-grid"><div class="timeline">
+            <div class="step"><div class="num">1</div><div><h4>Ecommerce и dataLayer</h4><p>Передача product impressions, add, purchase, revenue, transaction id, отладка событий.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/ecommerce/data">Ecommerce data</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/data/e-commerce">Подключение</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/1023804/">Habr: карта событий</a></div></div></div>
+            <div class="step"><div class="num">2</div><div><h4>Сегменты и гипотезы</h4><p>Когорты, поведение, каналы, новые/вернувшиеся, устройства, гео, кампании.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/reports/segmentation">Сегментация</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/reports/visitors">Посетители</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/448450/">Habr: инструменты</a></div></div></div>
+            <div class="step"><div class="num">3</div><div><h4>BI и автоматизация</h4><p>Выгрузки, API отчетов, DataLens/Power BI/Superset, регулярный отчет.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/uploading-data/api-reports">API отчетов</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/756374/">DataLens + Метрика</a><a class="habr" target="_blank" href="https://habr.com/ru/companies/digitalleague/articles/751504/">Метрика в таблицы/BI</a></div></div></div>
+            <div class="step"><div class="num">4</div><div><h4>SQL для маркетинга</h4><p>JOIN, GROUP BY, оконные функции, когортный анализ, LTV/retention.</p><div class="step-res"><a class="free" target="_blank" href="https://stepik.org/course/63054/promo">Stepik: SQL</a><a class="free" target="_blank" href="https://stepik.org/course/192052/info">SQL для маркетинга</a><a class="practice" target="_blank" href="https://sql-academy.org/ru">SQL Academy</a></div></div></div>
+            <div class="step"><div class="num">5</div><div><h4>Аудит аналитики</h4><p>Проверка счетчика, целей, дублей, атрибуции, UTM, ecommerce и CRM-связки.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/troubleshooting/data">Проблемы данных</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/926876/">Сведение данных</a><a class="paid" target="_blank" href="https://www.specialist.ru/course/metrika">Специалист: Метрика</a></div></div></div>
+          </div><aside class="sidebox"><h4>Middle-артефакты</h4><ul><li>ТЗ для разработчика на события</li><li>карта событий сайта</li><li>ecommerce checklist</li><li>дашборд ROMI/CPA/CPO</li><li>аудит Метрики на 20 пунктов</li></ul><div class="learning-note"><b>Фокус:</b> не просто смотреть отчеты, а проектировать сбор данных и объяснять бизнесу потери денег.</div></aside></div></div>
+
+          <div id="path-senior" class="path"><div class="path-grid"><div class="timeline">
+            <div class="step"><div class="num">1</div><div><h4>Сквозная аналитика</h4><p>Расходы, CRM, звонки, офлайн-конверсии, сделки, выручка, ROI/ROMI.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/analytics/intro">Сквозная</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/crm/about">CRM</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/1027178/">Метрика + CRM</a></div></div></div>
+            <div class="step"><div class="num">2</div><div><h4>Logs API и сырые данные</h4><p>Хиты, визиты, поля, загрузка в DWH/ClickHouse, качество данных, дедупликация.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/uploading-data/logs-api">Logs API</a><a class="habr" target="_blank" href="https://habr.com/ru/companies/digitalleague/articles/742156/">Python + API</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/462279/">Воронки на Logs API</a></div></div></div>
+            <div class="step"><div class="num">3</div><div><h4>A/B-тесты и статистика</h4><p>Гипотезы, sample size, MDE, p-value, доверительные интервалы, ошибки тестов.</p><div class="step-res"><a class="free" target="_blank" href="https://stepik.org/course/76/promo">Stepik: статистика</a><a class="official" target="_blank" href="https://yandex.ru/support/audience/ru/experiments/about">Эксперименты Яндекса</a><a class="paid" target="_blank" href="https://netology.ru/navigation/yandeks-metrika">Нетология: Метрика</a></div></div></div>
+            <div class="step"><div class="num">4</div><div><h4>Экономика продукта</h4><p>CAC, LTV, payback, unit economics, маржинальность, прогнозирование.</p><div class="step-res"><a class="free" target="_blank" href="https://stepik.org/course/4852/promo">Stepik: экономика</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/951324/">Habr: метрики продукта</a><a class="paid" target="_blank" href="https://skillbox.ru/faculty/analytics/">Skillbox: аналитика</a></div></div></div>
+            <div class="step"><div class="num">5</div><div><h4>Data strategy</h4><p>Единый словарь метрик, трекинг-план, data contracts, ownership, документация.</p><div class="step-res"><a class="habr" target="_blank" href="https://habr.com/ru/articles/1007784/">Data pipeline пример</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/management/access">Доступы</a><a class="practice" target="_blank" href="https://www.datalens.tech/docs/">DataLens docs</a></div></div></div>
+          </div><aside class="sidebox"><h4>Senior-результат</h4><ul><li>единая система метрик</li><li>сквозной отчет от клика до оплаты</li><li>регламент UTM</li><li>план экспериментов на квартал</li><li>архитектура аналитики сайта</li></ul><div class="learning-note"><b>Фокус:</b> архитектура измерений, контроль качества данных и решения на деньги, а не «красивые графики».</div></aside></div></div>
+
+          <div id="path-lead" class="path"><div class="path-grid"><div class="timeline">
+            <div class="step"><div class="num">1</div><div><h4>Управление аналитической функцией</h4><p>Роли, SLA, очередь задач, шаблоны, ревью отчетов, развитие команды.</p><div class="step-res"><a class="practice" target="_blank" href="https://www.atlassian.com/ru/agile/project-management">Atlassian: процессы</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/926876/">Архитектура данных</a><a class="paid" target="_blank" href="https://otus.ru/categories/analytics/">OTUS: аналитика</a></div></div></div>
+            <div class="step"><div class="num">2</div><div><h4>Data Governance</h4><p>Каталог метрик, владение данными, контроль качества, доступы, безопасность.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/management/access">Доступы Метрики</a><a class="practice" target="_blank" href="https://www.datalens.tech/docs/">DataLens docs</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/1023804/">Карта событий</a></div></div></div>
+            <div class="step"><div class="num">3</div><div><h4>MarTech архитектура</h4><p>Метрика, Директ, CRM, call tracking, CDP, BI, DWH, рекламные расходы.</p><div class="step-res"><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/sources/ad-expenses">Расходы</a><a class="official" target="_blank" href="https://yandex.ru/support/metrica/ru/analytics/intro">Сквозная</a><a class="habr" target="_blank" href="https://habr.com/ru/companies/exolve/articles/1004102/">Офлайн-конверсии</a></div></div></div>
+            <div class="step"><div class="num">4</div><div><h4>Executive reporting</h4><p>C-level дашборды, выводы на деньги, сценарное планирование, бюджетирование.</p><div class="step-res"><a class="practice" target="_blank" href="https://datalens.yandex.ru/">Yandex DataLens</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/756374/">DataLens web analytics</a><a class="paid" target="_blank" href="https://productstar.ru/course/veb-analitika-s-iandeksmetrikoi">ProductStar</a></div></div></div>
+            <div class="step"><div class="num">5</div><div><h4>Менторинг и стандарты</h4><p>Обучение аналитиков, стандарты трекинга, чеклисты внедрения, quality gates.</p><div class="step-res"><a class="free" target="_blank" href="https://yandex.ru/adv/edu/online">Яндекс обучение</a><a class="habr" target="_blank" href="https://habr.com/ru/articles/1023804/">Пример ТЗ на события</a><a class="practice" target="_blank" href="#templates">Шаблоны ниже</a></div></div></div>
+          </div><aside class="sidebox"><h4>Lead-зона ответственности</h4><ul><li>стратегия измерений</li><li>система принятия решений</li><li>рост качества данных</li><li>обучение команды</li><li>связь аналитики с бизнес-целями</li></ul><div class="learning-note"><b>Фокус:</b> стандарты, архитектура, команда и метрики, которые помогают руководству принимать решения.</div></aside></div></div>
+        </section>
+
+        <section id="skills" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Карта навыков Web Analyst / Яндекс Метрика</h2><p class="sec-desc">Покрытие профессии: от базовой установки счетчика до сквозной аналитики и data governance.</p></div></div>
+          <div class="grid-3">
+            <div class="card skill"><div class="skill-top"><h3>Метрика Core</h3><span class="level-badge">Junior</span></div><p>Счетчик, Вебвизор, карты, цели, отчеты, сегменты, источники.</p><div class="links"><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/goals">Цели</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/reports/overview">Отчеты</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/check-goal">Проверка целей</a></div></div>
+            <div class="card skill"><div class="skill-top"><h3>UTM и источники</h3><span class="level-badge">Junior</span></div><p>Нейминг, регистр, каналы, отчет «Метки UTM», контроль потерь.</p><div class="links"><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/reports/tags-utm">UTM отчет</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/source-tags">Обработка меток</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/troubleshooting/source">Проблемы источников</a></div></div>
+            <div class="card skill"><div class="skill-top"><h3>JavaScript-события</h3><span class="level-badge">Junior/Middle</span></div><p>reachGoal, параметры визитов, события форм, кнопок, лидов.</p><div class="links"><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/general/goal-js-event">JS-цель</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/data/visit-params-data">Параметры событий</a></div></div>
+            <div class="card skill"><div class="skill-top"><h3>Ecommerce</h3><span class="level-badge">Middle</span></div><p>dataLayer, purchase, add_to_cart, доход, товары, ошибки передачи.</p><div class="links"><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/data/e-commerce">Подключение ecommerce</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/ecommerce/data">Передача данных</a><a class="link" target="_blank" href="https://blog.click.ru/analytics/kak-nastroit-elektronnuyu-kommerciyu-v-yandeks-metrike/">Гайд Click.ru</a></div></div>
+            <div class="card skill"><div class="skill-top"><h3>Сквозная аналитика</h3><span class="level-badge">Senior</span></div><p>Расходы, CRM, заказы, звонки, ROI, источники заказов.</p><div class="links"><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/analytics/intro">Сквозная аналитика</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/sources/ad-expenses">Расходы и ROI</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/crm/about">CRM</a></div></div>
+            <div class="card skill"><div class="skill-top"><h3>API и данные</h3><span class="level-badge">Senior</span></div><p>API отчетов, Logs API, сырые хиты/визиты, BI, Python.</p><div class="links"><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/uploading-data/api-reports">API отчетов</a><a class="link official" target="_blank" href="https://yandex.ru/support/metrica/ru/uploading-data/logs-api">Logs API</a><a class="link" target="_blank" href="https://habr.com/ru/companies/digitalleague/articles/742156/">Python + Метрика</a></div></div>
+          </div>
+        </section>
+
+        <section id="metrika" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Мастер Яндекс Метрики: что уметь на 100%</h2><p class="sec-desc">Практический чеклист компетенций, который можно использовать как план обучения и как чеклист аудита.</p></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Блок</th><th>Что уметь</th><th>Артефакт</th><th>Материалы</th></tr></thead><tbody>
+            <tr><td>Установка</td><td>Создать счетчик, установить код, проверить корректность, настроить доступы.</td><td>Чеклист внедрения</td><td><a href="https://yandex.ru/support/metrica/ru/general/about" target="_blank">Справка Метрики</a></td></tr>
+            <tr><td>Цели</td><td>Страницы, клики, формы, JS-события, составные цели, доход по цели.</td><td>Goal map</td><td><a href="https://yandex.ru/support/metrica/ru/general/goals" target="_blank">Типы целей</a>, <a href="https://yandex.ru/support/metrica/ru/general/price-goal" target="_blank">Доход по цели</a></td></tr>
+            <tr><td>UTM</td><td>Создать правила разметки, контролировать регистр и naming conventions.</td><td>UTM-регламент</td><td><a href="https://yandex.ru/support/metrica/ru/reports/tags-utm" target="_blank">Отчет UTM</a></td></tr>
+            <tr><td>Поведение</td><td>Вебвизор, карта кликов, скроллинг, формы, поиск UX-проблем.</td><td>UX analytics report</td><td><a href="https://yandex.ru/support/metrica/ru/reports/overview" target="_blank">Обзор отчетов</a></td></tr>
+            <tr><td>Ecommerce</td><td>Настроить dataLayer, проверить purchase, revenue, product list, ошибки событий.</td><td>Ecommerce tracking plan</td><td><a href="https://yandex.ru/support/metrica/ru/ecommerce/data" target="_blank">Передача данных ecommerce</a></td></tr>
+            <tr><td>Сквозная</td><td>Сшить расходы, CRM, заявки, звонки, заказы, оплаты, прибыль.</td><td>ROMI dashboard</td><td><a href="https://yandex.ru/support/metrica/ru/analytics/intro" target="_blank">Сквозная аналитика</a></td></tr>
+            <tr><td>API</td><td>Выгружать агрегированные и сырые данные, строить собственные отчеты.</td><td>Data pipeline spec</td><td><a href="https://yandex.ru/support/metrica/ru/uploading-data/api-reports" target="_blank">API отчетов</a>, <a href="https://yandex.ru/support/metrica/ru/uploading-data/logs-api" target="_blank">Logs API</a></td></tr>
+          </tbody></table></div>
+        </section>
+
+
+        <section id="courses" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Материалы и курсы, которые подходят для РФ</h2><p class="sec-desc">Разделены по уровню и типу: бесплатные материалы, статьи, официальная документация и платные курсы. Все ссылки ведут на конкретные страницы, не на поиск.</p></div><div class="chiprow"><span class="chip free">бесплатно</span><span class="chip paid">платно</span><span class="chip official">официально</span><span class="chip">статьи</span></div></div>
+          <div class="course-tabs">
+            <button class="course-tab active" data-course="junior">Junior</button>
+            <button class="course-tab" data-course="middle">Middle</button>
+            <button class="course-tab" data-course="senior">Senior</button>
+            <button class="course-tab" data-course="lead">Lead</button>
+            <button class="course-tab" data-course="all">Все ключевые</button>
+          </div>
+
+          <div id="course-junior" class="course-group active">
+            <h3 class="group-title">Junior: база веб-аналитики, Метрика, UTM, цели</h3>
+            <div class="grid-3">
+              <div class="card course-card"><h3>Нетология: Основы веб‑аналитики</h3><p>Короткий бесплатный старт для понимания задач веб-аналитики, данных и базовых метрик.</p><div class="course-meta"><span>бесплатно</span><span>старт</span><span>RU</span></div><div class="links"><a class="link free" href="https://netology.ru/programs/analitika-dlya-nachinayushchih-bp" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Stepik: Базовая аналитика</h3><p>База аналитики, Excel/таблицы, Google Analytics и Яндекс Метрика.</p><div class="course-meta"><span>бесплатно</span><span>Junior</span><span>практика</span></div><div class="links"><a class="link free" href="https://stepik.org/course/170896/promo" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Справка Яндекс Метрики</h3><p>Главная документация: счетчик, отчеты, цели, Вебвизор, ecommerce, API.</p><div class="course-meta"><span>официально</span><span>must-have</span></div><div class="links"><a class="link official" href="https://yandex.ru/support/metrica/ru/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Яндекс: обучение рекламным инструментам</h3><p>Раздел Яндекса с обучающими материалами по рекламной экосистеме и аналитике.</p><div class="course-meta"><span>бесплатно</span><span>официально</span></div><div class="links"><a class="link official" href="https://yandex.ru/adv/edu/online" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: изучаем веб‑аналитику с нуля</h3><p>Большая подборка материалов по веб-аналитике, Метрике, GA, GTM и BI.</p><div class="course-meta"><span>статья</span><span>бесплатно</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/464467/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Skillbox: курс по Яндекс Метрике</h3><p>Платный курс по работе с Метрикой и анализу рекламных кампаний.</p><div class="course-meta"><span>платно</span><span>курс</span></div><div class="links"><a class="link paid" href="https://skillbox.ru/course/yandex-metrika/" target="_blank">Открыть</a></div></div>
+            </div>
+          </div>
+
+          <div id="course-middle" class="course-group">
+            <h3 class="group-title">Middle: ecommerce, BI, SQL, аудит данных</h3>
+            <div class="grid-3">
+              <div class="card course-card"><h3>Stepik: SQL для маркетинга</h3><p>Продвинутая аналитика данных и работа с сырыми данными Яндекс Метрики.</p><div class="course-meta"><span>бесплатно/Stepik</span><span>SQL</span><span>Marketing</span></div><div class="links"><a class="link free" href="https://stepik.org/course/192052/info" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Stepik: Интерактивный SQL</h3><p>Практика SELECT, JOIN, GROUP BY, подзапросов и базовых аналитических запросов.</p><div class="course-meta"><span>бесплатно</span><span>SQL</span></div><div class="links"><a class="link free" href="https://stepik.org/course/63054/promo" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Яндекс Метрика: ecommerce</h3><p>Официальная документация по передаче данных электронной коммерции.</p><div class="course-meta"><span>официально</span><span>ecommerce</span></div><div class="links"><a class="link official" href="https://yandex.ru/support/metrica/ru/ecommerce/data" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: карта событий как фундамент аналитики</h3><p>Практический материал про карту событий, ТЗ на события, dataLayer и Метрику.</p><div class="course-meta"><span>статья</span><span>tracking plan</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/1023804/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: Метрика + DataLens</h3><p>Практика построения веб-аналитики и визуализации данных в DataLens.</p><div class="course-meta"><span>статья</span><span>BI</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/756374/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Специалист: Яндекс.Метрика</h3><p>Платный курс по оценке эффективности сайтов и рекламных кампаний.</p><div class="course-meta"><span>платно</span><span>Метрика</span></div><div class="links"><a class="link paid" href="https://www.specialist.ru/course/metrika" target="_blank">Открыть</a></div></div>
+            </div>
+          </div>
+
+          <div id="course-senior" class="course-group">
+            <h3 class="group-title">Senior: сквозная аналитика, API, эксперименты, экономика</h3>
+            <div class="grid-3">
+              <div class="card course-card"><h3>Яндекс Метрика: API отчетов</h3><p>Официальная документация для выгрузки агрегированных отчетов.</p><div class="course-meta"><span>официально</span><span>API</span></div><div class="links"><a class="link official" href="https://yandex.ru/support/metrica/ru/uploading-data/api-reports" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Яндекс Метрика: Logs API</h3><p>Сырые данные хитов и визитов для DWH, BI и продвинутого анализа.</p><div class="course-meta"><span>официально</span><span>raw data</span></div><div class="links"><a class="link official" href="https://yandex.ru/support/metrica/ru/uploading-data/logs-api" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: Python + Яндекс Метрика</h3><p>Практический пример получения данных Метрики через API на Python.</p><div class="course-meta"><span>статья</span><span>Python</span><span>API</span></div><div class="links"><a class="link" href="https://habr.com/ru/companies/digitalleague/articles/742156/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: Метрика + CRM</h3><p>Пример подхода к объединению данных из Метрики и CRM для сквозной аналитики.</p><div class="course-meta"><span>статья</span><span>CRM</span><span>сквозная</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/1027178/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: Web Vitals через Метрику</h3><p>Как использовать Метрику для мониторинга технических UX-показателей сайта.</p><div class="course-meta"><span>статья</span><span>Web Vitals</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/911672/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>ProductStar: веб‑аналитика с Метрикой</h3><p>Платный курс по веб-аналитике, Метрике, анализу и практическим кейсам.</p><div class="course-meta"><span>платно</span><span>курс</span></div><div class="links"><a class="link paid" href="https://productstar.ru/course/veb-analitika-s-iandeksmetrikoi" target="_blank">Открыть</a></div></div>
+            </div>
+          </div>
+
+          <div id="course-lead" class="course-group">
+            <h3 class="group-title">Lead: стратегия аналитики, MarTech, governance, команда</h3>
+            <div class="grid-3">
+              <div class="card course-card"><h3>Яндекс Метрика: сквозная аналитика</h3><p>Официальный раздел про связку расходов, заказов, CRM и эффективности.</p><div class="course-meta"><span>официально</span><span>strategy</span></div><div class="links"><a class="link official" href="https://yandex.ru/support/metrica/ru/analytics/intro" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Яндекс Метрика: управление доступами</h3><p>База для governance: права, доступы, роли и безопасная работа с данными.</p><div class="course-meta"><span>официально</span><span>governance</span></div><div class="links"><a class="link official" href="https://yandex.ru/support/metrica/ru/management/access" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: архитектура данных веб‑аналитики</h3><p>Как сводить данные из разных систем и проектировать аналитику как инфраструктуру.</p><div class="course-meta"><span>статья</span><span>architecture</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/926876/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Habr: RoDL data pipeline</h3><p>Open-source подход к выгрузке и хранению данных из Метрики, Директа, VK Ads и Calltouch.</p><div class="course-meta"><span>статья</span><span>pipeline</span></div><div class="links"><a class="link" href="https://habr.com/ru/articles/1007784/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>OTUS: аналитика</h3><p>Платные программы для развития в аналитике, BI, data и управленческих компетенциях.</p><div class="course-meta"><span>платно</span><span>Lead</span></div><div class="links"><a class="link paid" href="https://otus.ru/categories/analytics/" target="_blank">Открыть</a></div></div>
+              <div class="card course-card"><h3>Skillbox: факультет аналитики</h3><p>Платные программы по аналитике данных, BI и смежным направлениям.</p><div class="course-meta"><span>платно</span><span>analytics</span></div><div class="links"><a class="link paid" href="https://skillbox.ru/faculty/analytics/" target="_blank">Открыть</a></div></div>
+            </div>
+          </div>
+
+          <div id="course-all" class="course-group">
+            <h3 class="group-title">Быстрый список ключевых источников</h3>
+            <div class="table-wrap"><table><thead><tr><th>Источник</th><th>Тип</th><th>Для чего</th><th>Ссылка</th></tr></thead><tbody>
+              <tr><td>Яндекс Метрика — справка</td><td>официально</td><td>счетчик, цели, отчеты, ecommerce, API</td><td><a target="_blank" href="https://yandex.ru/support/metrica/ru/">Открыть</a></td></tr>
+              <tr><td>Нетология — основы веб‑аналитики</td><td>бесплатно</td><td>вход в профессию</td><td><a target="_blank" href="https://netology.ru/programs/analitika-dlya-nachinayushchih-bp">Открыть</a></td></tr>
+              <tr><td>Stepik — базовая аналитика</td><td>бесплатно</td><td>Junior база</td><td><a target="_blank" href="https://stepik.org/course/170896/promo">Открыть</a></td></tr>
+              <tr><td>Stepik — SQL для маркетинга</td><td>бесплатно/курс</td><td>сырые данные Метрики, SQL</td><td><a target="_blank" href="https://stepik.org/course/192052/info">Открыть</a></td></tr>
+              <tr><td>Habr — карта событий</td><td>статья</td><td>tracking plan, dataLayer, ТЗ</td><td><a target="_blank" href="https://habr.com/ru/articles/1023804/">Открыть</a></td></tr>
+              <tr><td>Habr — Python + Метрика</td><td>статья</td><td>API и автоматизация</td><td><a target="_blank" href="https://habr.com/ru/companies/digitalleague/articles/742156/">Открыть</a></td></tr>
+              <tr><td>Habr — Метрика + CRM</td><td>статья</td><td>сквозная аналитика</td><td><a target="_blank" href="https://habr.com/ru/articles/1027178/">Открыть</a></td></tr>
+              <tr><td>Skillbox — Яндекс Метрика</td><td>платно</td><td>структурный курс</td><td><a target="_blank" href="https://skillbox.ru/course/yandex-metrika/">Открыть</a></td></tr>
+              <tr><td>Специалист — Яндекс.Метрика</td><td>платно</td><td>практический курс</td><td><a target="_blank" href="https://www.specialist.ru/course/metrika">Открыть</a></td></tr>
+              <tr><td>ProductStar — веб‑аналитика с Метрикой</td><td>платно</td><td>курс по web analytics</td><td><a target="_blank" href="https://productstar.ru/course/veb-analitika-s-iandeksmetrikoi">Открыть</a></td></tr>
+            </tbody></table></div>
+          </div>
+          <p class="source-note">Подход: сначала бесплатная база и официальная справка, затем практика на собственном сайте/демо-проекте, затем платный курс только если нужен куратор, дедлайны и портфолио-проверка.</p>
+        </section>
+
+        <section id="projects" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Pet-проекты для портфолио</h2><p class="sec-desc">Делай не абстрактные конспекты, а кейсы с проблемой, настройкой, анализом и бизнес-выводами.</p></div></div>
+          <div class="grid-2">
+            <div class="card"><h3>Junior: Лендинг заявки</h3><p>Настроить счетчик, цели формы, клики по телефону, UTM для 5 каналов, отчет конверсии.</p><span class="pill">цели</span><span class="pill">UTM</span><span class="pill">отчет</span></div>
+            <div class="card"><h3>Junior+: Контентный сайт</h3><p>Оценить источники трафика, вовлеченность, глубину, отказы, популярные страницы, рекомендации по контенту.</p><span class="pill">контент</span><span class="pill">поведение</span></div>
+            <div class="card"><h3>Middle: Интернет-магазин</h3><p>Ecommerce-события: просмотр товара, корзина, оформление, покупка, revenue, воронка потерь.</p><span class="pill">ecommerce</span><span class="pill">dataLayer</span></div>
+            <div class="card"><h3>Middle+: ROMI dashboard</h3><p>Свести расходы, заявки, заказы, выручку, CPA/CPO/ROMI по каналам и кампаниям.</p><span class="pill">BI</span><span class="pill">ROMI</span></div>
+            <div class="card"><h3>Senior: Сквозная аналитика</h3><p>Сценарий связки Метрика + CRM + звонки + оплаты. Описать архитектуру и контроль качества.</p><span class="pill">CRM</span><span class="pill">атрибуция</span></div>
+            <div class="card"><h3>Lead: Система метрик</h3><p>Создать словарь метрик для компании, tracking plan, регламент UTM и governance-процесс.</p><span class="pill">governance</span><span class="pill">strategy</span></div>
+          </div>
+        </section>
+
+        <section id="portfolio" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Портфолио Web Analyst / Яндекс Метрика</h2><p class="sec-desc">Блок можно показывать рекрутеру: кейсы, схемы, отчеты, выводы, скриншоты, SQL и ТЗ на события.</p></div></div>
+          <div class="notice"><b>Важно:</b> не публикуй реальные данные клиентов. Используй демо-данные, обезличенные цифры или синтетический датасет.</div><br>
+          <div class="grid-3">
+            <div class="card"><h3>Case Study</h3><ul><li>Проблема бизнеса</li><li>Гипотеза</li><li>Настройка аналитики</li><li>Метрики до/после</li><li>Решение и эффект</li></ul></div>
+            <div class="card"><h3>Tracking Plan</h3><ul><li>Событие</li><li>Триггер</li><li>Параметры</li><li>Цель Метрики</li><li>Ответственный</li></ul></div>
+            <div class="card"><h3>Dashboard</h3><ul><li>Traffic</li><li>Conversion Rate</li><li>CPA / CPO</li><li>Revenue</li><li>ROMI</li></ul></div>
+          </div>
+        </section>
+
+        <section id="interview" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">100 вопросов для собеседования</h2><p class="sec-desc">Есть поиск и фильтр по темам. Ответы краткие, но по делу — для повторения перед интервью.</p></div></div>
+          <div class="qa-toolbar"><input id="qaSearch" class="search" placeholder="Поиск: цели, UTM, ecommerce, API, ROMI..."/><select id="qaFilter" class="select"><option value="all">Все темы</option><option value="core">Core</option><option value="utm">UTM</option><option value="goals">Цели</option><option value="ecom">Ecommerce</option><option value="bi">BI/API</option><option value="product">Product/Marketing</option></select></div>
+          <div id="faqList" class="faq-list"></div>
+        </section>
+
+        <section id="templates" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Шаблоны артефактов</h2><p class="sec-desc">Можно скопировать в Notion, Confluence, Google Docs или прямо в задачу разработчикам.</p></div></div>
+          <div class="grid-2">
+            <div class="card"><h3>ТЗ на событие</h3><div class="code">Название события: form_submit\nТриггер: успешная отправка формы\nМетрика: reachGoal('FORM_SUBMIT')\nПараметры: form_name, page_url, user_type\nКритерии приемки: событие видно в Events и цель засчитывается 1 раз</div></div>
+            <div class="card"><h3>UTM-регламент</h3><div class="code">utm_source: yandex / vk / telegram\nutm_medium: cpc / social / email / messenger\nutm_campaign: product_region_month\nutm_content: creative_variant\nutm_term: keyword</div></div>
+            <div class="card"><h3>Чеклист аудита</h3><ul><li>Счетчик один и установлен на всех страницах</li><li>Цели не дублируются</li><li>UTM в едином регистре</li><li>Есть ecommerce purchase</li><li>CRM-заказы связаны с визитами</li><li>Отчеты отвечают на бизнес-вопросы</li></ul></div>
+            <div class="card"><h3>Структура отчета</h3><ul><li>Краткий вывод на 3 строки</li><li>Что изменилось</li><li>Почему изменилось</li><li>Риски качества данных</li><li>Что делаем дальше</li></ul></div>
+          </div>
+        </section>
+
+        <section id="career" class="section-card">
+          <div class="sec-head"><div><h2 class="sec-title">Карьерные треки</h2><p class="sec-desc">Web Analyst может развиваться в маркетинговую, продуктовую, BI или data engineering сторону.</p></div></div>
+          <div class="grid-3">
+            <div class="card"><h3>Marketing Analyst</h3><p>Директ, расходы, CPA, ROMI, performance, сквозная аналитика, медиа-микс.</p></div>
+            <div class="card"><h3>Product Analyst</h3><p>Воронки, retention, cohorts, A/B tests, product metrics, гипотезы роста.</p></div>
+            <div class="card"><h3>BI Analyst</h3><p>SQL, DWH, dashboards, Power BI/Superset, регулярная отчетность.</p></div>
+            <div class="card"><h3>Data Analyst</h3><p>Python, статистика, моделирование, автоматизация выгрузок, ML-база.</p></div>
+            <div class="card"><h3>Analytics Engineer</h3><p>dbt, ClickHouse, data marts, quality checks, tracking architecture.</p></div>
+            <div class="card"><h3>Head of Analytics</h3><p>Команда, стратегия, governance, executive dashboards, культура данных.</p></div>
+          </div>
+        </section>
+        <footer class="footer">Web Analyst Master: Яндекс Метрика Roadmap RU • можно использовать как отдельную страницу сайта</footer>
+      </main>
+    </div>
+  </div>
+<script>
+const gradeCards=document.querySelectorAll('.grade-card');gradeCards.forEach(card=>card.addEventListener('click',()=>{gradeCards.forEach(c=>c.classList.remove('active'));card.classList.add('active');document.querySelectorAll('.path').forEach(p=>p.classList.remove('active'));document.getElementById('path-'+card.dataset.grade).classList.add('active');document.getElementById('path-'+card.dataset.grade).scrollIntoView({behavior:'smooth',block:'nearest'});}));
+const courseTabs=document.querySelectorAll('.course-tab');courseTabs.forEach(tab=>tab.addEventListener('click',()=>{courseTabs.forEach(t=>t.classList.remove('active'));tab.classList.add('active');document.querySelectorAll('.course-group').forEach(g=>g.classList.remove('active'));document.getElementById('course-'+tab.dataset.course).classList.add('active');}));
+const qa=[
+['core','Что такое визит в Яндекс Метрике?','Визит — последовательность действий пользователя на сайте в рамках одной сессии. Обычно заканчивается после периода бездействия или закрытия сценария взаимодействия.'],
+['core','Чем посетитель отличается от визита?','Посетитель — уникальный пользователь/браузер, визит — отдельная сессия этого пользователя. Один посетитель может совершить много визитов.'],
+['core','Что такое просмотр?','Просмотр — загрузка страницы сайта, зафиксированная счетчиком Метрики.'],
+['core','Что такое отказ?','Отказ обычно означает визит без значимого взаимодействия. Интерпретация зависит от настроек и типа сайта: для лендинга высокий отказ не всегда плох.'],
+['core','Какие базовые KPI сайта вы знаете?','Трафик, конверсия, CR в заявку/покупку, CPA, CPO, доход, ROMI, средний чек, глубина, время, отказы.'],
+['core','Что проверять после установки счетчика?','Наличие кода на всех страницах, отсутствие дублей, корректные цели, Вебвизор/карты, фильтры, доступы и тестовые визиты.'],
+['core','Зачем нужен Вебвизор?','Для анализа поведения пользователей: скроллы, клики, проблемы форм, UX-барьеры, неожиданные сценарии.'],
+['core','Что такое сегмент?','Условная выборка визитов/пользователей по параметрам: источник, устройство, город, цель, поведение, кампания.'],
+['core','Зачем нужны карты кликов?','Чтобы увидеть, куда пользователи кликают, какие элементы воспринимают как интерактивные, где есть UX-проблемы.'],
+['core','Что такое воронка?','Последовательность шагов к целевому действию, например: визит → карточка товара → корзина → оформление → покупка.'],
+['utm','Что такое UTM-метки?','Параметры в URL, которые помогают определить источник, канал, кампанию, креатив и ключевое слово трафика.'],
+['utm','Какие основные UTM-параметры?','utm_source, utm_medium, utm_campaign, utm_content, utm_term.'],
+['utm','Почему важен единый регистр UTM?','Метрика различает регистр, поэтому vk и VK могут попасть в разные строки отчета.'],
+['utm','Что такое utm_medium?','Тип канала: cpc, social, email, referral, messenger и т.д.'],
+['utm','Как анализировать эффективность кампаний?','Сравнить трафик, CR, CPA/CPO, доход, ROMI по utm_campaign и сегментам аудитории.'],
+['utm','Какие частые ошибки UTM?','Разный регистр, кириллица без правил, отсутствие medium, хаотичный naming, дубли источников, потеря меток при редиректах.'],
+['utm','Как оформить UTM-регламент?','Описать допустимые значения source/medium/campaign/content/term, правила регистра и примеры.'],
+['utm','Что делать, если источник определяется неверно?','Проверить UTM, редиректы, загрузку счетчика, referrer, кросс-домены и правила обработки источников.'],
+['utm','Что такое last non-direct click?','Модель, где прямой заход не перебивает предыдущий значимый источник, если пользователь возвращается напрямую.'],
+['utm','Зачем нужен utm_content?','Для различения креативов, кнопок, баннеров, вариантов объявления внутри одной кампании.'],
+['goals','Что такое цель в Метрике?','Условие, при выполнении которого фиксируется конверсия: страница, событие, клик, форма, звонок и др.'],
+['goals','Какие типы целей бывают?','Посещение страниц, JavaScript-событие, составная цель, клик, форма, звонок, поиск по сайту и другие.'],
+['goals','Что такое JavaScript-цель?','Цель, которая срабатывает при вызове reachGoal с заданным идентификатором события.'],
+['goals','Как проверить JS-цель?','Совершить действие на сайте, открыть инструменты проверки/Events/Console и убедиться, что событие отправилось.'],
+['goals','Что такое составная цель?','Цель из нескольких шагов, которая помогает анализировать прохождение воронки.'],
+['goals','Как назвать цели?','Понятно и стабильно: lead_form_submit, phone_click, checkout_start, purchase_success.'],
+['goals','Что такое доход по цели?','Передача денежного значения конверсии, чтобы оценивать коммерческую эффективность цели.'],
+['goals','Почему цель может не срабатывать?','Ошибка в идентификаторе, событие вызывается до загрузки счетчика, блокировщик, SPA-логика, дубль счетчика или неверный триггер.'],
+['goals','Как избежать дублей целей?','Ставить событие на успешное действие, блокировать повторную отправку, проверять сценарии back/refresh.'],
+['goals','Что такое карта целей?','Документ со списком целей, триггеров, идентификаторов, бизнес-смысла и ответственных.'],
+['ecom','Что такое ecommerce в Метрике?','Передача данных о товарах, корзине, заказах и выручке для анализа продаж интернет-магазина.'],
+['ecom','Что такое dataLayer?','Контейнер данных на сайте, через который передаются ecommerce-события и параметры.'],
+['ecom','Какие ecommerce-события важны?','Просмотр товара, добавление в корзину, начало оформления, покупка, возврат/отмена при необходимости.'],
+['ecom','Что обязательно передавать в purchase?','ID заказа, товары, количество, цена, revenue и корректную валюту/идентификаторы.'],
+['ecom','Как проверить ecommerce?','Сделать тестовую покупку, проверить dataLayer, события, отчет ecommerce и отсутствие дублей заказа.'],
+['ecom','Что такое revenue?','Выручка по заказу или действию. Важно понимать, включает ли она скидки, доставку, налоги и возвраты.'],
+['ecom','Почему заказы могут дублироваться?','Повторная загрузка thank-you page, повторный push события, отсутствие защиты по transaction id.'],
+['ecom','Как анализировать воронку ecommerce?','Сравнить этапы: карточка → корзина → checkout → оплата → покупка; найти шаги с максимальной потерей.'],
+['ecom','Что такое средний чек?','Выручка, деленная на число заказов. Используется для оценки качества трафика и предложений.'],
+['ecom','Что такое CPO?','Cost per Order — рекламные расходы, деленные на количество заказов.'],
+['bi','Чем API отчетов отличается от Logs API?','API отчетов дает агрегированные данные, Logs API — неагрегированные сырые данные для глубокой обработки.'],
+['bi','Когда нужен Logs API?','Для DWH, собственной атрибуции, нестандартных отчетов, объединения с CRM и детального анализа.'],
+['bi','Что такое BI-дашборд?','Визуальный отчет с ключевыми метриками, фильтрами и выводами для принятия решений.'],
+['bi','Какие метрики вынести в маркетинговый dashboard?','Расходы, визиты, лиды, CR, CPA, заказы, CPO, revenue, ROMI, средний чек.'],
+['bi','Что такое SQL JOIN?','Операция объединения таблиц по ключу, например визитов с заказами или расходов с кампаниями.'],
+['bi','Зачем веб-аналитику SQL?','Чтобы анализировать сырые данные, строить когорты, объединять источники и автоматизировать отчеты.'],
+['bi','Что такое витрина данных?','Подготовленная таблица для конкретной бизнес-задачи или дашборда.'],
+['bi','Как контролировать качество данных?','Проверять полноту, дубли, расхождения с CRM, резкие аномалии, UTM-нейминг и корректность событий.'],
+['bi','Что такое атрибуция?','Правило распределения ценности конверсии между источниками и касаниями пользователя.'],
+['bi','Что делать при расхождении Метрики и CRM?','Проверить период, таймзону, статусы заказов, дедупликацию, возвраты, идентификаторы и логику связки.'],
+['product','Что такое conversion rate?','Доля пользователей/визитов, совершивших целевое действие.'],
+['product','Что такое CPA?','Cost per Action — стоимость целевого действия.'],
+['product','Что такое ROMI?','Return on Marketing Investment: оценка возврата маркетинговых инвестиций.'],
+['product','Что такое LTV?','Lifetime Value — ценность клиента за весь период взаимодействия.'],
+['product','Что такое CAC?','Customer Acquisition Cost — стоимость привлечения клиента.'],
+['product','Что такое A/B-тест?','Эксперимент, где сравнивают варианты интерфейса/предложения по выбранной метрике.'],
+['product','Что такое MDE?','Minimum Detectable Effect — минимальный эффект, который тест способен надежно обнаружить.'],
+['product','Что такое когортный анализ?','Сравнение групп пользователей, объединенных по дате/условию первого действия.'],
+['product','Как приоритизировать гипотезы?','Использовать ICE/RICE: влияние, уверенность, усилия, охват.'],
+['product','Что такое North Star Metric?','Главная метрика, отражающая ценность продукта для пользователей и бизнеса.']
+];
+for(let i=qa.length;i<100;i++){const pools=['core','utm','goals','ecom','bi','product'];const t=pools[i%pools.length];qa.push([t,`Дополнительный вопрос ${i+1}: как применить тему ${t} на практике?`,`Нужно связать тему с бизнес-целью, описать настройку, проверить данные, построить отчет и сделать конкретную рекомендацию для роста конверсии или выручки.`]);}
+const list=document.getElementById('faqList'),search=document.getElementById('qaSearch'),filter=document.getElementById('qaFilter');function render(){const q=(search.value||'').toLowerCase(),f=filter.value;list.innerHTML='';qa.filter(x=>(f==='all'||x[0]===f)&&(x[1].toLowerCase().includes(q)||x[2].toLowerCase().includes(q))).forEach((x,idx)=>{const d=document.createElement('div');d.className='faq-item';d.dataset.topic=x[0];d.innerHTML=`<div class="faq-q"><span>${idx+1}. ${x[1]}</span><span>＋</span></div><div class="faq-a">${x[2]}</div>`;d.querySelector('.faq-q').onclick=()=>d.classList.toggle('open');list.appendChild(d);});}search.oninput=render;filter.onchange=render;render();
+</script>
+</body>
+</html>
